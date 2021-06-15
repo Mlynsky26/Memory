@@ -14,7 +14,8 @@ module.exports = class Player {
     }
 
     sendPacket(packet) {
-        this.socket.emit("message", packet)
+        if (this.socket != null && this.socket != undefined)
+            this.socket.emit("message", packet)
     }
 
     sendPacketData(type, data) {
